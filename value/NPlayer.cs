@@ -31,7 +31,8 @@ namespace NativeFunctionHook.value
 
         /// <summary>
         /// Returns the Current Player's ID. 
-        /// The Player ID is meaningless for other script functions and should be converted to a Player Index.
+        /// The Player ID is meaningless for other script functions and should be converted to a Player Index,
+        /// by using <see cref="ConvertPlayerIDToIndex(int)"/>
         /// </summary>
         /// <returns>Player ID.</returns>
         public static int GetPlayerId()
@@ -54,7 +55,7 @@ namespace NativeFunctionHook.value
         /// Switch ON or OFF for prevent cops from spawning when the player is wanted.
         /// </summary>
         /// <param name="index">Player Index.</param>
-        /// <param name="val">Whether to prevent cops from spawning when the player is wanted</param>
+        /// <param name="val">Whether to prevent cops from spawning when the player is wanted.</param>
         public static void SwitchDispatchCopForPlayerWhenWanted(int index, bool val)
         {
             Function.Call("DONT_DISPATCH_COPS_FOR_PLAYER", new Parameter[] {
