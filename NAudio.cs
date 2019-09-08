@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using GTA;
 using GTA.Native;
 
 namespace NativeFunctionHook
@@ -36,6 +37,13 @@ namespace NativeFunctionHook
         {
             if (!Switch) Function.Call("DISABLE_POLICE_SCANNER");
             else Function.Call("ENABLE_POLICE_SCANNER");
+        }
+
+        public static void PlaySoundFromVehicle(string ID, Vehicle veh)
+        {
+            Function.Call("PLAY_SOUND_FROM_VEHICLE", new Parameter[] {
+                ID, veh
+            });
         }
     }
 }

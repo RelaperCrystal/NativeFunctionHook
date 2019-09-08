@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common.cs" />
+    <Compile Include="DebuggerConsole\RDbg.cs" />
     <Compile Include="MissionCtrl\NMission.cs" />
     <Compile Include="NAudio.cs" />
     <Compile Include="NDisplay.cs" />
@@ -54,6 +55,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Types.cs" />
     <Compile Include="value\NCheckpoint.cs" />
+    <Compile Include="value\NFH_Ped.cs" />
+    <Compile Include="value\NPlayer.cs" />
     <Compile Include="value\RGBColor.cs" />
   </ItemGroup>
   <ItemGroup />

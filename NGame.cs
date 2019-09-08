@@ -13,6 +13,7 @@ namespace NativeFunctionHook
         /// The Player ID is meaningless for other script functions and should be converted to a Player Index.
         /// </summary>
         /// <returns>Player ID.</returns>
+        [Obsolete("Should use the one from value.NPlayer")]
         public static int GetPlayerId()
         {
             int result = Function.Call<int>("GET_PLAYER_ID");
@@ -60,6 +61,27 @@ namespace NativeFunctionHook
         public static void PrintSubtitle(string text, int duration = 7000)
         {
             Function.Call("PRINT_STRING_WITH_LITERAL_STRING_NOW", new Parameter[] { "STRING", text, duration });
+        }
+
+        /// <summary>
+        /// Is text in language file being displayed.
+        /// </summary>
+        /// <param name="langText">The Text ID.</param>
+        /// <returns></returns>
+        public static bool IsHelpMessageBeingDisplayed(string langText)
+        {
+            return Function.Call<bool>("IS_THIS_HELP_MESSAGE_BEING_DISPLAYED", new Parameter[] {
+                langText
+            });
+        }
+
+        /// <summary>
+        /// Request model. Called for safety etc.
+        /// </summary>
+        /// <param name="modelID">The Model string ID.</param>
+        public static void RequestModel(string modelID)
+        {
+            Function.Call("REQUEST_MODEL", modelID);
         }
     }
 }

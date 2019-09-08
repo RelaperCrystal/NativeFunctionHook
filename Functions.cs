@@ -143,6 +143,7 @@ namespace NativeFunctionHook
             Function.Call("SET_PED_ALPHA", p, value);
         }
 
+        [Obsolete("Should use the function from value.NPlayer")]
         public static int ConvertPlayerIDToIndex(int ID)
         {
             int result = Function.Call<int>("CONVERT_INT_TO_PLAYERINDEX", ID);
