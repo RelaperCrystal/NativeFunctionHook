@@ -83,5 +83,14 @@ namespace NativeFunctionHook
         {
             Function.Call("REQUEST_MODEL", modelID);
         }
+
+        /// <summary>
+        /// Request anims. Called for using them in native functions.
+        /// </summary>
+        /// <param name="animID">The Anim string ID.</param>
+        public static void RequestAnims(string animID)
+        {
+            Function.Call("REQUEST_ANIMS", animID);
+        }
     }
 }

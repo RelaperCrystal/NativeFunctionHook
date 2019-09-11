@@ -18,3 +18,4 @@ D:\Projects\NativeFunctionHook\obj\Debug\NativeFunctionHook.csproj.CoreCompileIn
 D:\Projects\NativeFunctionHook\obj\Debug\NativeFunctionHook.csproj.CopyComplete
 D:\Projects\NativeFunctionHook\obj\Debug\NativeFunctionHook.dll
 D:\Projects\NativeFunctionHook\obj\Debug\NativeFunctionHook.pdb
+D:\Projects\NativeFunctionHook\bin\Debug\ScriptHookDotNet.dll
