@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="Common.cs" />
     <Compile Include="DebuggerConsole\RDbg.cs" />
+    <Compile Include="Enums\NWeapon.cs" />
     <Compile Include="MissionCtrl\NMission.cs" />
     <Compile Include="NAudio.cs" />
     <Compile Include="NDisplay.cs" />
