@@ -94,6 +94,22 @@ namespace NativeFunctionHook
                 0
             });
         }
+
+        public static void OpenGarage(string name)
+        {
+            Functions.InternalOpenGarage(name);
+        }
+
+        public static void ClearArea(ClearType type, Vector3 position, float radius)
+        {
+            if(position == null)
+            {
+                throw new ArgumentNullException(nameof(position));
+            }
+
+            Functions.InternalClearArea(type, position, radius);
+        }
+
         public const float Radius_Checkpoint_Arrow = 7f;
     }
 }

@@ -27,32 +27,20 @@ namespace NativeFunctionHook
         }
 
         /// <summary>
-        /// This function adds a string to the news scrollbar as seen in The Triangle, south of Star Junction.
-        /// The news scrollbar in northern Star Junction is controlled by scrollbars.dat. 
-        /// Recommonded to call <see cref="NativeFunctionHook.Functions.ClearNewsScrollBar()"/> before calling this function. If you don't, 
-        /// the string will be added next to the previous one that was created.
-        /// </summary>
+        /// This method was no longer in use, and was replaced to a placeholder.
+        /// It will now call the actual method <see cref="NWorld.AddStringToNewsScrollBar"/>.
         /// <param name="text"></param>
         [Obsolete]
-        public static void AddStringToNewsScrollBar(string text)
-        {
-            Function.Call("ADD_STRING_TO_NEWS_SCROLLBAR", new Parameter[]{
-                text
-            });
-        }
+        public static void AddStringToNewsScrollBar(string text) => NWorld.AddStringToNewsScrollBar(text);
 
         /// <summary>
-        /// This function removes all text on the news scrollbar as seen in The Triangle, south of Star Junction.
-        /// The news scrollbar in northern Star Junction is controlled by scrollbars.dat. 
-        /// </summary>
+        /// This method was no longer in use, and was replaced to a placeholder.
+        /// It will now call the actual method <see cref="NWorld.ClearNewsScrollBar"/>.
         /// <param name="text"></param>
         [Obsolete]
-        public static void ClearNewsScrollBar(string text)
-        {
-            Function.Call("CLEAR_NEWS_SCROLLBAR");
-        }
+        public static void ClearNewsScrollBar(string text) => NWorld.ClearNewsScrollBar(text);
 
-        public static void ClearArea(ClearType type, Vector3 position, float radius)
+        internal static void InternalClearArea(ClearType type, Vector3 position, float radius)
         {
             switch(type)
             {
@@ -108,8 +96,7 @@ namespace NativeFunctionHook
         /// The player is frozen and the game can't be paused while it's on. 
         /// </summary>
         /// <param name="Switch"></param>
-        [Obsolete("This will make the game freeze and cannot be played.", true)]
-        public static void ForceLoadingScreen(bool Switch)
+        public static unsafe void ForceLoadingScreen(bool Switch)
         {
             int ISwitch = Common.ConvertBoolToInt(Switch);
             Function.Call("FORCE_LOADING_SCREEN", new Parameter[]{
