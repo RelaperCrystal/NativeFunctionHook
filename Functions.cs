@@ -117,7 +117,7 @@ namespace NativeFunctionHook
             });
         }
 
-        public static void OpenGarage(string name)
+        internal static void InternalOpenGarage(string name)
         {
             Function.Call("OPEN_GARAGE", new Parameter[]{
                 name
@@ -130,8 +130,19 @@ namespace NativeFunctionHook
             Function.Call("PRINT_STRING_WITH_LITERAL_STRING_NOW", new Parameter[] { "STRING", text, duration });
         }
 
+        [Obsolete("Should use NFH_Ped.Alpha. Original function was moved there, and the body was moved to another internal method.")]
         public static void SetPedAlpha(Ped p, int value)
         {
+            throw new NotImplementedException();
+        }
+
+        internal static void InternalSetPedAlpha(Ped p, int value)
+        {
+            if (p == null)
+            {
+                throw new ArgumentNullException(nameof(p));
+            }
+
             if (value > 255)
             {
                 value = 255;

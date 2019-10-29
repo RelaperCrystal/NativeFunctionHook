@@ -94,6 +94,6 @@ namespace NativeFunctionHook
                 0
             });
         }
-        public static readonly float Radius_Checkpoint_Arrow = 7f;
+        public const float Radius_Checkpoint_Arrow = 7f;
     }
 }

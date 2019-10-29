@@ -36,6 +36,14 @@ namespace NativeFunctionHook.value
             }
         }
 
+        public int Alpha
+        {
+            set
+            {
+                Functions.InternalSetPedAlpha(this.GTAPed, value);
+            }
+        }
+
         public bool BlockAmbientAnims
         {
             set
