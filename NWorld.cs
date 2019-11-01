@@ -110,6 +110,62 @@ namespace NativeFunctionHook
             Functions.InternalClearArea(type, position, radius);
         }
 
+        public static int DayOfWeek
+        {
+            get
+            {
+                return Function.Call<int>("GET_CURRENT_DAY_OF_WEEK");
+            }
+        }
+
+        /// <summary>
+        /// Add a stunt jump.
+        /// </summary>
+        /// <param name="startMinimum">The minimum position of start.</param>
+        /// <param name="startMaximum">The maximum position of start.</param>
+        /// <param name="landingMinimum">The minimum position of landing.</param>
+        /// <param name="landingMaximum">The maximum position of landing.</param>
+        /// <param name="cameraPos">The position of camera.</param>
+        /// <param name="cashReward">The reward.</param>
+        public static void AddStuntJump(Vector3 startMinimum, Vector3 startMaximum, Vector3 landingMinimum, Vector3 landingMaximum, Vector3 cameraPos, int cashReward)
+        {
+            Function.Call("ADD_STUNT_JUMP", new Parameter[] {
+                startMinimum.X, startMinimum.Y, startMinimum.Z,
+                startMaximum.X, startMaximum.Y, startMaximum.Z,
+                landingMinimum.X, landingMinimum.Y, landingMinimum.Z,
+                landingMaximum.X, landingMaximum.Y, landingMaximum.Z,
+                cameraPos.X, cameraPos.Y, cameraPos.Z,
+                cashReward
+            });
+        }
+
+        /// <summary>
+        /// Result is untested. This was used by TrafficFlow mod.
+        /// </summary>
+        /// <param name="location">The location when creating the car.</param>
+        /// <param name="model">The vehicle model.</param>
+        /// <param name="ped1">Out parameter. The pointer of ped 1.</param>
+        /// <param name="ped2">Out parameter. The pointer of ped 2.</param>
+        /// <param name="vehicle">Out parameter. The pointer of ped 3.</param>
+        public static void CreateEmergencyServicesCarThenWalk(Vector3 location, string model, out Pointer ped1, out Pointer ped2, out Pointer vehicle)
+        {
+            Model modeltmp = new Model(model);
+            ped1 = typeof(Ped);
+            ped2 = typeof(Ped);
+            vehicle = typeof(Vehicle);
+            NGame.RequestModel(modeltmp.Hash);
+            NGame.RequestModel(Model.CurrentCopModel.Hash);
+            Function.Call("CREATE_EMERGENCY_SERVICES_CAR_THEN_WALK", new Parameter[] {
+                modeltmp.Hash,
+                location.X,
+                location.Y,
+                location.Z,
+                vehicle,
+                ped1,
+                ped2,
+            });
+        }
+
         public const float Radius_Checkpoint_Arrow = 7f;
     }
 }

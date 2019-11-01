@@ -1,0 +1,6 @@
+﻿ACTIVATE_HELI_SPEED_CHEAT
+	Params:
+		1. Vehicle | helicopter
+		2. bool | ON or OFF
+	Do:
+		Activate Or Deactivate the Helicopter Speed Cheat

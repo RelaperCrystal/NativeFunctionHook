@@ -170,5 +170,17 @@ namespace NativeFunctionHook.value
                 return result;
             }
         }
+
+        /// <summary>
+        /// Get if the player is currently dead or not.
+        /// </summary>
+        public static bool IsDead
+        {
+            get
+            {
+                bool result = Function.Call<bool>("IS_PLAYER_DEAD", ConvertPlayerIDToIndex(GetPlayerId()));
+                return result;
+            }
+        }
     }
 }

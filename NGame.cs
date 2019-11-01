@@ -78,10 +78,10 @@ namespace NativeFunctionHook
         /// <summary>
         /// Request model. Called for safety etc.
         /// </summary>
-        /// <param name="modelID">The Model string ID.</param>
-        public static void RequestModel(string modelID)
+        /// <param name="modelHash">The Model hash.</param>
+        public static void RequestModel(int modelHash)
         {
-            Function.Call("REQUEST_MODEL", modelID);
+            Function.Call("REQUEST_MODEL", modelHash);
         }
 
         /// <summary>
@@ -91,6 +91,15 @@ namespace NativeFunctionHook
         public static void RequestAnims(string animID)
         {
             Function.Call("REQUEST_ANIMS", animID);
+        }
+
+        /// <summary>
+        /// Sets the game forcing telescope cam or not.
+        /// </summary>
+        /// <param name="Switch">ON or OFF.</param>
+        public static void ForceTelescopeCam(bool Switch)
+        {
+            Function.Call("FORCE_GAME_TELESCOPE_CAM", Switch);
         }
     }
 }

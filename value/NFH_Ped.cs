@@ -25,6 +25,9 @@ namespace NativeFunctionHook.value
             return Function.Call<GTA.Object>("GET_OBJECT_PED_IS_HOLDING", this.GTAPed);
         }
 
+        /// <summary>
+        /// Sets ped preform ragdoll or not when facing player impact.
+        /// </summary>
         public bool PreventPlayerBumpRagdoll
         {
             set
@@ -36,6 +39,17 @@ namespace NativeFunctionHook.value
             }
         }
 
+        /// <summary>
+        /// Forces ped to drop weapon.
+        /// </summary>
+        public void ForceToDropWeapon()
+        {
+            Function.Call("FORCE_CHAR_TO_DROP_WEAPON", GTAPed);
+        }
+
+        /// <summary>
+        /// Sets the alpha of the ped.
+        /// </summary>
         public int Alpha
         {
             set
@@ -44,6 +58,9 @@ namespace NativeFunctionHook.value
             }
         }
 
+        /// <summary>
+        /// Sets the ped can preform ambient anims or not.
+        /// </summary>
         public bool BlockAmbientAnims
         {
             set
@@ -55,7 +72,8 @@ namespace NativeFunctionHook.value
             }
         }
 
-        public bool AmbientAnimGroup
+        [Obsolete("It's dangerous to call this property.", true)]
+        public unsafe bool AmbientAnimGroup
         {
             set
             {
@@ -64,6 +82,18 @@ namespace NativeFunctionHook.value
                     value
                 });
             }
+        }
+
+        /// <summary>
+        /// Add or remove the ped from mission deletion list.
+        /// </summary>
+        /// <param name="AddOrRemove">If true, add to list. If false, remove from list.</param>
+        public void AddToMissionDeletionList(bool AddOrRemove)
+        {
+            Function.Call("ADD_PED_TO_MISSION_DELETION_LIST", new Parameter[] {
+                GTAPed,
+                AddOrRemove
+            });
         }
 
         public int CurrentWeaponID
