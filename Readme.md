@@ -2,6 +2,8 @@
 
 This is the main development repository of Native Function Hook. The current plan is make mission scripts etc. native functions. Originally, it's developed under [Landtory](http://github.com/RelaperCrystal/Landtory) project. 
 
+This project was aiming for full implement on documented natives and these natives I discovered. The untested & usage unknown natives and undocumented & undiscovered natives or **documented returns/arguments is not it should be**. Be advised this project was not a replacement for LMS' `AdvancedHook`, which aiming for memory hacking.
+
 ## Building
 
 You will require these following tools and libraries:
